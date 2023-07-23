@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/apiClient";
 
+interface Game {
+  id: number;
+  name: string;
+}
+
+interface GamesResponse {
+  count: number;
+  results: Game[];
+}
+
 function GameGrid() {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
     apiClient
-      .get("/games", {
+      .get<GamesResponse>("/games", {
         signal: controller.signal
       })
-      .then(({ data: { results } }) => console.log(results))
+      .then(({ data: { results } }) => setGames(results))
       .catch((err) => setError(err));
 
     return () => {
@@ -20,7 +30,15 @@ function GameGrid() {
     };
   }, [games]);
 
-  return <div>GameGrid</div>;
+  return (
+    <>
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 export default GameGrid;
