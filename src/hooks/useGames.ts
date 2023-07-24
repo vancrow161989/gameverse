@@ -1,5 +1,9 @@
 import useData from "./useData";
 
+interface gameGenre {
+  id: number;
+}
+
 export interface Platform {
   id: number;
   name: string;
@@ -12,6 +16,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  genres: gameGenre[];
 }
 
 const useGames = () => useData<Game>("/games");

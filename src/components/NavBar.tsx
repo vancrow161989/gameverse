@@ -4,9 +4,9 @@ import ColorModeSwitch from "./ColorModeSwitch";
 
 function NavBar() {
   return (
-    <HStack justifyContent="space-between" paddingY="5">
+    <HStack justifyContent="space-between" paddingY="6">
       <HStack>
-        <Image src={logo} boxSize="60px"></Image>
+        <Image src={logo} boxSize="40px"></Image>
         <Text fontWeight="semibold" fontSize="19px">
           GameVerse
         </Text>
