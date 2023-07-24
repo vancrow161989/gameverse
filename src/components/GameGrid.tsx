@@ -3,15 +3,15 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GamecardSkeleton from "./GameCardSkeleton";
 import GamecardContainer from "./GamecardContainer";
+import { Genre } from "../hooks/useGenres";
 
-function GameGrid({ selectedGenre }: { selectedGenre: number }) {
-  const { data: games, error, isLoading } = useGames();
-  const skeletons = Array.from({ length: 15 }, (value, index) => index);
-  const filteredGames = selectedGenre
-    ? games.filter((game) => game.genres.find((g) => g.id === selectedGenre))
-    : games;
+interface Props {
+  selectedGenre: Genre | null;
+}
 
-  // console.log("selected", selectedGenre, games, "filtered", filteredGames);
+function GameGrid({ selectedGenre }: Props) {
+  const { data: games, error, isLoading } = useGames(selectedGenre);
+  const skeletons = Array.from({ length: 15 }, (_, index) => index);
 
   if (error) return null;
   return (
@@ -25,8 +25,8 @@ function GameGrid({ selectedGenre }: { selectedGenre: number }) {
               <GamecardSkeleton />
             </GamecardContainer>
           ))}
-        {filteredGames.length < 1 && <Text>No Results Found..</Text>}
-        {filteredGames.map((game) => (
+        {games.length < 1 && <Text>No Results Found..</Text>}
+        {games.map((game) => (
           <GamecardContainer key={game.id}>
             <GameCard game={game} />
           </GamecardContainer>
