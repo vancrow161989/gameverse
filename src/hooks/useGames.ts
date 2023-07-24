@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CanceledError } from "../services/apiClient";
+import { CanceledError } from "../services/apiClientService";
 import gameService, { Game, GamesResponse } from "../services/gameService";
 
 function useGames() {
