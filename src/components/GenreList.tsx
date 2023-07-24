@@ -31,6 +31,7 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
               whiteSpace="normal"
               textAlign="left"
               fontSize="lg"
+              {...(selectedGenre?.id === genre.id && { color: "green" })}
               onClick={() => onSelectGenre(genre)}>
               {genre.name}
             </Button>
