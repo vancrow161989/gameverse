@@ -6,13 +6,14 @@ import GamecardContainer from "./GamecardContainer";
 
 function GameGrid() {
   const { data: games, error, isLoading } = useGames();
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const skeletons = Array.from({ length: 15 }, (value, index) => index);
 
+  if (error) return null;
   return (
     <>
       {error && <Text> {error}</Text>}
 
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10}>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={10}>
         {isLoading &&
           skeletons.map((skeleton) => (
             <GamecardContainer key={skeleton}>

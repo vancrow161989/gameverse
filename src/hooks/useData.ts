@@ -17,7 +17,6 @@ function useData<T>(endpoint: string) {
     apiClient
       .get<fetchResponse<T>>(endpoint)
       .then((res) => {
-        console.log("genre", res);
         setData(res.data.results);
         setLoading(false);
       })
