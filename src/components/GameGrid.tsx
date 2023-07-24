@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 
 function GameGrid() {
   const { games, error, isLoading } = useGames();
-
+  console.log("games", games);
   return (
     <>
       {error && <Text> {error}</Text>}
