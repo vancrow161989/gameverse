@@ -1,4 +1,4 @@
-import apiClient from "./apiClientService";
+import apiClient from "./apiClient";
 
 class HttpService {
   endpoint: string;

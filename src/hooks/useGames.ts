@@ -1,32 +1,19 @@
-import { useState, useEffect } from "react";
-import { CanceledError } from "../services/apiClientService";
-import gameService, { Game, GamesResponse } from "../services/gameService";
+import useData from "./useData";
 
-function useGames() {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const { request, cancel } = gameService.getAll<GamesResponse>();
-    setLoading(true);
-    request
-      .then((res) => {
-        setGames(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-        setLoading(false);
-      });
-
-    return () => {
-      cancel();
-    };
-  }, []);
-
-  return { games, error, isLoading };
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
 }
+
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
+}
+
+const useGames = () => useData<Game>("/games");
 
 export default useGames;
