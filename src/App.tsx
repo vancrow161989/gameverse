@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="app">
       <Grid
-        paddingX={10}
+        paddingX={[2, 4, 8]}
         templateAreas={{
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`

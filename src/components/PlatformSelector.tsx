@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import usePlatforms, { Platform } from "../hooks/usePlatforms";
 import { BsChevronDown } from "react-icons/bs";
-import PlatformSelectorSkeleton from "./PlatformSelectorSkeleton";
+import SelectorSkeleton from "./SelectorSkeleton";
 
 interface Props {
   selectedPlatform: Platform | null;
@@ -19,7 +19,7 @@ function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
   const { data: platforms, error, isLoading } = usePlatforms();
 
   if (error) return null;
-  if (isLoading) return <PlatformSelectorSkeleton />;
+  if (isLoading) return <SelectorSkeleton />;
   return (
     <>
       <Box marginY={6}>

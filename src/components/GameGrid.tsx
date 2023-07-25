@@ -14,7 +14,6 @@ function GameGrid({ gameQuery }: Props) {
   const skeletons = Array.from({ length: 15 }, (_, index) => index);
 
   const renderNoResults = () => {
-    console.log("games", games);
     return (gameQuery.genre || gameQuery.platform || gameQuery.sortOrder) &&
       games.length === 0 ? (
       <Text paddingLeft={2} paddingTop={5} fontSize="40px">
