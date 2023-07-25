@@ -9,21 +9,40 @@ import {
 
 import { BsChevronDown } from "react-icons/bs";
 
-function SortSelector() {
+interface Props {
+  selectedSortOrder: string;
+  onSelectSortOrder: (sortOrder: string) => void;
+}
+
+function SortSelector({ selectedSortOrder, onSelectSortOrder }: Props) {
+  const sortOrders = [
+    { value: "", label: "relevance" },
+    { value: "-added", label: "Date Added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" }
+  ];
+
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === selectedSortOrder
+  );
   return (
     <>
       <Box marginY={6}>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-            Order by: Relevance
+            Order by: {currentSortOrder?.label || "Relevance"}
           </MenuButton>
           <MenuList>
-            <MenuItem>Relevance</MenuItem>
-            <MenuItem>Date added</MenuItem>
-            <MenuItem>Name</MenuItem>
-            <MenuItem>Release date</MenuItem>
-            <MenuItem>Popularity</MenuItem>
-            <MenuItem>Averate rating</MenuItem>
+            {sortOrders.map((order) => (
+              <MenuItem
+                onClick={() => onSelectSortOrder(order.value)}
+                key={order.label}
+                value={order.value}>
+                {order.label}
+              </MenuItem>
+            ))}
           </MenuList>
         </Menu>
       </Box>

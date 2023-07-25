@@ -14,11 +14,15 @@ function GameGrid({ gameQuery }: Props) {
   const skeletons = Array.from({ length: 15 }, (_, index) => index);
 
   const renderNoResults = () => {
-    return gameQuery.genre && gameQuery.platform && games.length === 0 ? (
-      <Text>No Results Found..</Text>
+    console.log("games", games);
+    return (gameQuery.genre || gameQuery.platform || gameQuery.sortOrder) &&
+      games.length === 0 ? (
+      <Text paddingLeft={2} paddingTop={5} fontSize="40px">
+        No Results Found...
+      </Text>
     ) : null;
   };
-  console.log("games", games);
+
   if (error) return null;
   return (
     <>
