@@ -9,7 +9,7 @@ interface Props {
 
 function NavBar({ onSearch }: Props) {
   return (
-    <HStack spacing={{ base: "10px", md: "54px" }} paddingY={6}>
+    <HStack spacing={{ base: "10px", md: "100px" }} paddingY={6}>
       <HStack>
         <HStack w={["40px", null, "145px"]}>
           <Image src={logo} boxSize="40px"></Image>
