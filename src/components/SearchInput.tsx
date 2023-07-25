@@ -17,9 +17,15 @@ function SearchInput({ onSearch }: Props) {
   return (
     <form onSubmit={handleSubmit}>
       <InputGroup>
-        <InputLeftElement children={<BsSearch />} />
+        <InputLeftElement
+          fontSize={22}
+          marginTop={1}
+          marginLeft={2}
+          children={<BsSearch />}
+        />
         <Input
           ref={ref}
+          size="lg"
           borderRadius={20}
           placeholder="Search games..."
           variant="filled"
