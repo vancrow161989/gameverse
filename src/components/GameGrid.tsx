@@ -24,7 +24,9 @@ function GameGrid({ gameQuery }: Props) {
 
   if (error) return null;
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={5}>
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      spacing={{ base: 50, lg: 6, xl: 8 }}>
       {isLoading &&
         skeletons.map((skeleton) => (
           <GamecardContainer key={skeleton}>
