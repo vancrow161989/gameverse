@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames";
 import { getCropImage } from "../services/imageService";
 import PlatformIcons from "./PlatformIcons";
 import CriticScore from "./CriticScore";
+import Emojis from "./Emojis";
 
 function GameCard({ game }: { game: Game }) {
   return (
@@ -15,7 +16,8 @@ function GameCard({ game }: { game: Game }) {
           />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="19px">{game.name}</Heading>
+        <Heading fontSize="23px">{game.name}</Heading>
+        <Emojis rating={game.rating_top} />
       </CardBody>
     </Card>
   );
