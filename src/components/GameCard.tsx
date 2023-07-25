@@ -5,6 +5,7 @@ import PlatformIcons from "./PlatformIcons";
 import CriticScore from "./CriticScore";
 
 function GameCard({ game }: { game: Game }) {
+  if (!game.background_image) return;
   return (
     <Card>
       <Image src={getCropImage(game.background_image)} />
