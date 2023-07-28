@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import { Genre } from "./hooks/useGenres";
-import { Platform } from "./hooks/usePlatforms";
+import { GameQuery } from "./services/gameService";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -10,13 +9,6 @@ import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 import Footer from "./components/Footer";
 import "./index.css";
-
-export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
-}
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
