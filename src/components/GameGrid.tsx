@@ -15,14 +15,14 @@ function GameGrid({ gameQuery }: Props) {
 
   const renderNoResults = () => {
     return (gameQuery.genre || gameQuery.platform || gameQuery.sortOrder) &&
-      games.length === 0 ? (
+      games?.results.length === 0 ? (
       <Text paddingLeft={2} paddingTop={5} fontSize="40px">
         No Results Found...
       </Text>
     ) : null;
   };
 
-  if (error) return null;
+  if (error) return <Text> {error.message} </Text>;
   return (
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
@@ -34,7 +34,7 @@ function GameGrid({ gameQuery }: Props) {
           </GamecardContainer>
         ))}
       {renderNoResults()}
-      {games.map((game) => (
+      {games?.results.map((game) => (
         <GamecardContainer key={game.id}>
           <GameCard game={game} />
         </GamecardContainer>
