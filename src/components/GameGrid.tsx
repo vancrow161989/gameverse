@@ -1,5 +1,5 @@
 import useGames from "../hooks/useGames";
-import { Box, Button, SimpleGrid, Text, Spinner } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text, Spinner } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import GameCard from "./GameCard";
 import GamecardSkeleton from "./GameCardSkeleton";
@@ -46,7 +46,11 @@ function GameGrid({ gameQuery }: Props) {
             <Spinner marginY="30px" textAlign="center" size="xl" />
           </Box>
         }
-        endMessage={<Text>Yay! You have seen it all</Text>}>
+        endMessage={
+          <Text textAlign="center" fontSize="3xl" marginY={25}>
+            Yay! You have seen it all
+          </Text>
+        }>
         <SimpleGrid
           columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
           spacing={{ base: 50, lg: 6, xl: 8 }}>

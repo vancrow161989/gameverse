@@ -1,3 +1,4 @@
+import ms from "ms";
 import genreService from "../services/genreService";
 import genres from "../data/genres";
 import { useQuery } from "@tanstack/react-query";
@@ -15,6 +16,5 @@ const useGenres = () =>
     staleTime: ms("24hr"),
     initialData: { count: genres.length, next: null, results: genres }
   });
-// useData<Genre>("/genres");
 
 export default useGenres;
