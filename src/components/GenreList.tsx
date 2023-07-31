@@ -6,13 +6,13 @@ import {
   List,
   ListItem
 } from "@chakra-ui/react";
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
 import { getCropImage } from "../services/imageService";
 import GenreListSkeleton from "./GenreListSkeleton";
 
 interface Props {
   onSelectGenre: (genre: number) => void;
-  selectedGenreId: number | null;
+  selectedGenreId?: number;
 }
 
 function GenreList({ onSelectGenre, selectedGenreId }: Props) {

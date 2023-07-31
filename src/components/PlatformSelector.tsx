@@ -7,12 +7,11 @@ import {
   MenuList
 } from "@chakra-ui/react";
 import usePlatforms from "../hooks/usePlatforms";
-import { Platform } from "../services/platformService";
 import { BsChevronDown } from "react-icons/bs";
 import PlatformSelectorSkeleton from "./SelectorSkeleton";
 
 interface Props {
-  selectedPlatformId: number | null;
+  selectedPlatformId?: number;
   onSelectPlatform: (selectedPlatformId: number) => void;
 }
 
