@@ -12,12 +12,16 @@ import { BsChevronDown } from "react-icons/bs";
 import PlatformSelectorSkeleton from "./SelectorSkeleton";
 
 interface Props {
-  selectedPlatform: Platform | null;
-  onSelectPlatform: (selectedPlatform: Platform) => void;
+  selectedPlatformId: number | null;
+  onSelectPlatform: (selectedPlatformId: number) => void;
 }
 
-function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
+function PlatformSelector({ selectedPlatformId, onSelectPlatform }: Props) {
   const { data: platforms, error, isLoading } = usePlatforms();
+
+  const currentPlatform = platforms.results?.find(
+    (platform) => platform.id === selectedPlatformId
+  );
 
   if (error) return null;
   if (isLoading) return <PlatformSelectorSkeleton />;
@@ -26,13 +30,13 @@ function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
       <Box marginY={6}>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-            {selectedPlatform?.name || "Platform"}
+            {currentPlatform?.name || "Platform"}
           </MenuButton>
           <MenuList>
             {platforms?.results.map((platform) => (
               <MenuItem
                 key={platform.id}
-                onClick={() => onSelectPlatform(platform)}>
+                onClick={() => onSelectPlatform(platform.id)}>
                 {platform.name}
               </MenuItem>
             ))}

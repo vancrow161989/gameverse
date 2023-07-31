@@ -11,11 +11,11 @@ import { getCropImage } from "../services/imageService";
 import GenreListSkeleton from "./GenreListSkeleton";
 
 interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  onSelectGenre: (genre: number) => void;
+  selectedGenreId: number | null;
 }
 
-function GenreList({ onSelectGenre, selectedGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenreId }: Props) {
   const { data: genres, error, isLoading } = useGenres();
 
   const skeletons = Array.from({ length: 15 }, (_, index) => index);
@@ -43,8 +43,8 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                 whiteSpace="normal"
                 textAlign="left"
                 fontSize="lg"
-                {...(selectedGenre?.id === genre.id && { color: "green" })}
-                onClick={() => onSelectGenre(genre)}>
+                {...(selectedGenreId === genre.id && { color: "green" })}
+                onClick={() => onSelectGenre(genre.id)}>
                 {genre.name}
               </Button>
             </HStack>

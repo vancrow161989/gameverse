@@ -1,10 +1,10 @@
 import apiClient from "./apiClient";
 import { Platform } from "./platformService";
-import { Genre } from "./genreService";
+// import { Genre } from "./genreService";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId: number | null;
+  platformId: number | null;
   sortOrder: string;
   searchText: string;
 }
