@@ -2,10 +2,10 @@ import apiClient from "./apiClient";
 import { Platform } from "./platformService";
 
 export interface GameQuery {
-  genreId: number | undefined;
-  platformId: number | undefined;
-  sortOrder: string;
-  searchText: string;
+  genreId?: number;
+  platformId?: number;
+  sortOrder?: string;
+  searchText?: string;
 }
 
 export interface Game {

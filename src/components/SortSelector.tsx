@@ -8,13 +8,14 @@ import {
 } from "@chakra-ui/react";
 
 import { BsChevronDown } from "react-icons/bs";
+import useGameQueryStore from "../store/gameQueryStore";
 
-interface Props {
-  selectedSortOrder: string | null;
-  onSelectSortOrder: (sortOrder: string) => void;
-}
+function SortSelector() {
+  const selectedSortOrder = useGameQueryStore(
+    (store) => store.gameQuery.sortOrder
+  );
+  const onSelectSortOrder = useGameQueryStore((store) => store.setSortOrder);
 
-function SortSelector({ selectedSortOrder, onSelectSortOrder }: Props) {
   const sortOrders = [
     { value: "", label: "relevance" },
     { value: "-added", label: "Date Added" },

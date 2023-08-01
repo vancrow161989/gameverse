@@ -9,15 +9,14 @@ import {
 import usePlatforms from "../hooks/usePlatforms";
 import { BsChevronDown } from "react-icons/bs";
 import PlatformSelectorSkeleton from "./SelectorSkeleton";
+import useGameQueryStore from "../store/gameQueryStore";
 
-interface Props {
-  selectedPlatformId?: number;
-  onSelectPlatform: (selectedPlatformId: number) => void;
-}
-
-function PlatformSelector({ selectedPlatformId, onSelectPlatform }: Props) {
+function PlatformSelector() {
   const { data: platforms, error, isLoading } = usePlatforms();
-
+  const selectedPlatformId = useGameQueryStore(
+    (store) => store.gameQuery.platformId
+  );
+  const onSelectPlatform = useGameQueryStore((store) => store.setPlatformId);
   const currentPlatform = platforms.results?.find(
     (platform) => platform.id === selectedPlatformId
   );
