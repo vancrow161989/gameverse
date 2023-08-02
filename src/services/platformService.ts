@@ -6,4 +6,4 @@ export interface Platform {
   slug: string;
 }
 
-export default new apiClient<Platform>("/platforms/lists/parents");
+export default new apiClient("/platforms/lists/parents");
