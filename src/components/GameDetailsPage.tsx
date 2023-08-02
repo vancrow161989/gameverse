@@ -10,11 +10,10 @@ import {
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import useGameDetails from "../hooks/useGameDetails";
-import useLimitStrings from "../hooks/useLimitString";
 import CriticScore from "./CriticScore";
+import ExpandableText from "./ExpandableText";
 
 function GameDetailsPage() {
-  const { limitString } = useLimitStrings();
   const { slug } = useParams();
 
   const { data: gameDetails } = useGameDetails(slug);
@@ -34,10 +33,14 @@ function GameDetailsPage() {
         <Heading as="h1" paddingY={3} fontSize={{ base: "3xl", lg: "5xl" }}>
           {gameDetails?.name}
         </Heading>
-
         {gameDetails?.description_raw && (
-          <Text fontSize="xl">{limitString(gameDetails?.description_raw)}</Text>
+          <>
+            <Text fontSize="xl">
+              <ExpandableText>{gameDetails?.description_raw}</ExpandableText>
+            </Text>
+          </>
         )}
+
         <HStack
           direction={["column", "row"]}
           alignItems="start"
