@@ -19,16 +19,22 @@ const axiosInstance = axios.create({
   }
 });
 
-class apiClient<T> {
+class apiClient {
   endpoint: string;
 
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
 
-  getAll = (config?: AxiosRequestConfig) => {
+  getAll = <T>(config?: AxiosRequestConfig) => {
     return axiosInstance
       .get<fetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
+
+  getDetailsById = <T>(slug?: string) => {
+    return axiosInstance
+      .get<T>(`${this.endpoint}/${slug}`)
       .then((res) => res.data);
   };
 }

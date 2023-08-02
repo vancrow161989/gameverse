@@ -12,7 +12,7 @@ export interface Genre {
 const useGenres = () =>
   useQuery({
     queryKey: ["genres"],
-    queryFn: () => genreService.getAll(),
+    queryFn: () => genreService.getAll<Genre>(),
     staleTime: ms("24hr"),
     initialData: genres
   });
