@@ -1,25 +1,26 @@
-import {
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-  Box,
-  ListItem,
-  List,
-  HStack
-} from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import useGameDetails from "../hooks/useGameDetails";
-import CriticScore from "./CriticScore";
 import ExpandableText from "./ExpandableText";
+import GameAttributes from "./GameAttributes";
+import useGameTrailers from "../hooks/useGameTrailers";
+import GameTrailer from "./GameTrailer";
 
 function GameDetailsPage() {
   const { slug } = useParams();
 
-  const { data: gameDetails } = useGameDetails(slug);
-  console.log(gameDetails);
+  const { data: gameDetails, error, isLoading } = useGameDetails(slug);
+  const { data: gameTrailer } = useGameTrailers(gameDetails?.id);
+
+  console.log("game", gameDetails);
+  console.log("trailer", gameTrailer);
+
+  if (isLoading) return <Spinner></Spinner>;
+  if (error || !gameDetails) throw error;
+
   return (
     <Grid
+      gap={45}
       paddingX={[4, 4, 8]}
       templateAreas={{
         base: `"nav" "left right"`,
@@ -31,60 +32,16 @@ function GameDetailsPage() {
       }}>
       <GridItem area="left">
         <Heading as="h1" paddingY={3} fontSize={{ base: "3xl", lg: "5xl" }}>
-          {gameDetails?.name}
+          {gameDetails.name}
         </Heading>
-        {gameDetails?.description_raw && (
-          <>
-            <Text fontSize="xl">
-              <ExpandableText>{gameDetails?.description_raw}</ExpandableText>
-            </Text>
-          </>
-        )}
-
-        <HStack
-          direction={["column", "row"]}
-          alignItems="start"
-          marginY={8}
-          flexWrap="wrap">
-          <Box w="48%" marginBottom={10}>
-            <Heading as="h6" size="md" marginBottom={4}>
-              Platforms
-            </Heading>
-            <List>
-              {gameDetails?.parent_platforms.map(({ platform }) => (
-                <ListItem>{platform.name}</ListItem>
-              ))}
-            </List>
-          </Box>
-          <Box w="48%">
-            <Heading as="h6" size="md" alignItems="start" marginBottom={4}>
-              Metascore
-            </Heading>
-            <CriticScore score={gameDetails?.metacritic || 0} />
-          </Box>
-          <Box w="48%">
-            <Heading as="h6" size="md" alignItems="start" marginBottom={4}>
-              Genres
-            </Heading>
-            <List>
-              {gameDetails?.genres.map((genre) => (
-                <ListItem>{genre.name}</ListItem>
-              ))}
-            </List>
-          </Box>
-          <Box w="48%">
-            <Heading as="h6" size="md" alignItems="start" marginBottom={4}>
-              Publishers
-            </Heading>
-            <List>
-              {gameDetails?.publishers.map((publisher) => (
-                <ListItem>{publisher.name}</ListItem>
-              ))}
-            </List>
-          </Box>
-        </HStack>
+        <Text fontSize="xl">
+          <ExpandableText>{gameDetails.description_raw}</ExpandableText>
+        </Text>
+        <GameAttributes gameDetails={gameDetails} />
       </GridItem>
-      <GridItem area="right"></GridItem>
+      <GridItem area="right">
+        <GameTrailer gameId={gameDetails.id} />
+      </GridItem>
     </Grid>
   );
 }
