@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 
 import GameGrid from "./GameGrid";
 import GameHeading from "./GameHeading";
@@ -19,9 +19,11 @@ function Homepage() {
           base: "1fr",
           lg: "250px 1fr"
         }}>
-        <GridItem area="aside" paddingRight={3}>
-          <GenreList />
-        </GridItem>
+        <Show above="lg">
+          <GridItem area="aside" paddingRight={3}>
+            <GenreList />
+          </GridItem>
+        </Show>
 
         <GridItem area="content">
           <GameHeading />
