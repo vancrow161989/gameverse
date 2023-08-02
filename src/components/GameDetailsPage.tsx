@@ -5,6 +5,7 @@ import ExpandableText from "./ExpandableText";
 import GameAttributes from "./GameAttributes";
 import useGameTrailers from "../hooks/useGameTrailers";
 import GameTrailer from "./GameTrailer";
+import GameScreenshots from "./GameScreenshots";
 
 function GameDetailsPage() {
   const { slug } = useParams();
@@ -23,7 +24,7 @@ function GameDetailsPage() {
       gap={45}
       paddingX={[4, 4, 8]}
       templateAreas={{
-        base: `"nav" "left right"`,
+        base: `"left" "right"`,
         lg: `"left right"`
       }}
       templateColumns={{
@@ -41,6 +42,7 @@ function GameDetailsPage() {
       </GridItem>
       <GridItem area="right">
         <GameTrailer gameId={gameDetails.id} />
+        <GameScreenshots gameId={gameDetails.id} />
       </GridItem>
     </Grid>
   );
