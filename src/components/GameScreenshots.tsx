@@ -17,7 +17,7 @@ function GameScreenshots({ gameId }: Props) {
   if (isLoading) return <Spinner />;
   if (error || !gameScreenshots) throw error;
   return (
-    <SimpleGrid columns={[1, 2]} gap={4} marginY={45}>
+    <SimpleGrid columns={[1, 2]} gap={4} marginY={[6, 45]}>
       {gameScreenshots.results
         .filter((screenshot) => screenshot.is_deleted === false)
         .map((screenshot) => (

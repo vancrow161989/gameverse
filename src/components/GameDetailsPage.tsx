@@ -21,7 +21,7 @@ function GameDetailsPage() {
 
   return (
     <Grid
-      gap={45}
+      gap={[5, 45]}
       paddingX={[4, 4, 8]}
       templateAreas={{
         base: `"left" "right"`,

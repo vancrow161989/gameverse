@@ -13,7 +13,7 @@ function GameAttributes({ gameDetails }: Props) {
       alignItems="start"
       marginY={8}
       flexWrap="wrap">
-      <Box w="48%" marginBottom={10} as="dl">
+      <Box w="48%" marginBottom={{ md: 10 }} as="dl">
         <DefinitionItem term="Platforms">
           <List>
             {gameDetails.parent_platforms.map(({ platform }) => (
