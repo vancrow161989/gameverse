@@ -33,7 +33,6 @@ function Homepage() {
           <GameGrid />
         </GridItem>
       </Grid>
-      ;
     </div>
   );
 }
