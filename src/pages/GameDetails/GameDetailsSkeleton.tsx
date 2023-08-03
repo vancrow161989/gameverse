@@ -28,7 +28,7 @@ function GameDetailsSkeleton() {
               mb="4"
               noOfLines={1}
               skeletonHeight="81px"
-              width="500px"></SkeletonText>
+              width={["100%", "500px"]}></SkeletonText>
           </Heading>
           <Text fontSize="xl">
             <SkeletonText noOfLines={4} skeletonHeight="5"></SkeletonText>
