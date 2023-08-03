@@ -1,4 +1,5 @@
-import platformService, { Platform } from "../services/platformService";
+import platformService from "../services/platformService";
+import Platform from "../entities/Platform";
 import ms from "ms";
 import { useQuery } from "@tanstack/react-query";
 import platforms from "../data/platforms";

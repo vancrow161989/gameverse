@@ -1,11 +1,12 @@
 import { Box, HStack, List, ListItem } from "@chakra-ui/react";
-import CriticScore from "./CriticScore";
-import DefinitionItem from "./DefinitionItem";
-import { GameDetailsType } from "../services/gameService";
+import CriticScore from "../../components/CriticScore";
+import DefinitionItem from "../../components/DefinitionItem";
+import Game from "./../../entities/Game";
 
 interface Props {
-  gameDetails: GameDetailsType;
+  gameDetails: Game;
 }
+
 function GameAttributes({ gameDetails }: Props) {
   return (
     <HStack

@@ -25,7 +25,7 @@ function PlatformSelector() {
   if (isLoading) return <PlatformSelectorSkeleton />;
   return (
     <>
-      <Box marginY={6}>
+      <Box marginY={[0, 6]}>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
             {currentPlatform?.name || "Platform"}

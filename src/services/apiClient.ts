@@ -6,12 +6,6 @@ export interface fetchResponse<T> {
   results: T[];
 }
 
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
-
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {

@@ -1,15 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import gameService from "../services/gameService";
-
-interface Screenshot {
-  id: number;
-  image: string;
-  is_deleted: boolean;
-}
-
-interface Screenshots {
-  results: Screenshot[];
-}
+import Screenshots from "../entities/Screenshots";
 
 const useGameScreenshots = (id?: number) =>
   useQuery({

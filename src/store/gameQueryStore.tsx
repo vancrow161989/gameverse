@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
-import { GameQuery } from "./../services/gameService";
+import GameQuery from "../entities/GameQuery";
 
 interface GameStoreType {
   gameQuery: GameQuery;

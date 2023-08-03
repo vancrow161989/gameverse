@@ -1,7 +1,7 @@
 import { Grid, GridItem, Heading, Show, Text } from "@chakra-ui/react";
 import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
 import Footer from "../components/Footer";
-import GenreList from "../components/GenreList";
+import GenreList from "./Home/GenreList";
 import NavBar from "../components/NavBar";
 
 function ErrorPage() {

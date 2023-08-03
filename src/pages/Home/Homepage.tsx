@@ -1,10 +1,10 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Stack, Show } from "@chakra-ui/react";
 
-import GameGrid from "./GameGrid";
-import GameHeading from "./GameHeading";
+import GameGrid from "../../components/GameGrid";
+import GameHeading from "../../components/GameHeading";
 import GenreList from "./GenreList";
-import PlatformSelector from "./PlatformSelector";
-import SortSelector from "./SortSelector";
+import PlatformSelector from "../../components/PlatformSelector";
+import SortSelector from "../../components/SortSelector";
 
 function Homepage() {
   return (
@@ -27,10 +27,10 @@ function Homepage() {
 
         <GridItem area="content">
           <GameHeading />
-          <HStack spacing={5}>
+          <Stack direction={["column", "row"]} spacing={[0, 5]}>
             <PlatformSelector />
             <SortSelector />
-          </HStack>
+          </Stack>
           <GameGrid />
         </GridItem>
       </Grid>

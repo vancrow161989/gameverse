@@ -30,7 +30,7 @@ function SortSelector() {
   );
   return (
     <>
-      <Box marginY={6}>
+      <Box marginY={[3, 6]}>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
             Order by: {currentSortOrder?.label || "Relevance"}

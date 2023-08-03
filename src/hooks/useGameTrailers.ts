@@ -1,19 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import gameService from "../services/gameService";
-
-interface Trailer {
-  id: number;
-  name: string;
-  preview: string;
-  data: {
-    480: string;
-    max: string;
-  };
-}
-
-interface GameTrailer {
-  results: Trailer[];
-}
+import GameTrailer from "../entities/GameTrailer";
 
 const useGameTrailers = (id?: number) =>
   useQuery({

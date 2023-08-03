@@ -1,5 +1,5 @@
 import { Box, Spinner } from "@chakra-ui/react";
-import useGameTrailers from "./../hooks/useGameTrailers";
+import useGameTrailers from "../../hooks/useGameTrailers";
 
 interface Props {
   gameId: number;
