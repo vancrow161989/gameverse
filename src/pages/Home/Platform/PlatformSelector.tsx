@@ -6,10 +6,12 @@ import {
   MenuItem,
   MenuList
 } from "@chakra-ui/react";
-import usePlatforms from "../hooks/usePlatforms";
+
 import { BsChevronDown } from "react-icons/bs";
-import PlatformSelectorSkeleton from "./SelectorSkeleton";
-import useGameQueryStore from "../store/gameQueryStore";
+
+import PlatformSelectorSkeleton from "./PlatformSelectorSkeleton";
+import useGameQueryStore from "../../../store/gameQueryStore";
+import usePlatforms from "../../../hooks/usePlatforms";
 
 function PlatformSelector() {
   const { data: platforms, error, isLoading } = usePlatforms();

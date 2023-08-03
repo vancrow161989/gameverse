@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
-import Game from "../entities/Game";
-import { getCropImage } from "../services/imageService";
-import PlatformIcons from "./PlatformIcons";
-import CriticScore from "./CriticScore";
-import Emojis from "./Emojis";
+import Game from "../../../entities/Game";
+import { getCropImage } from "../../../services/imageService";
+import PlatformIcons from "../Platform/PlatformIcons";
+import CriticScore from "../../../components/CriticScore";
+import Emojis from "../../../components/Emojis";
 
 function GameCard({ game }: { game: Game }) {
   return (

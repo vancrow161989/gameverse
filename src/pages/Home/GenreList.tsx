@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import useGenres from "../../hooks/useGenres";
 import { getCropImage } from "../../services/imageService";
-import GenreListSkeleton from "../../components/GenreListSkeleton";
+import GenreListSkeleton from "./Game/GenreListSkeleton";
 import useGameQueryStore from "../../store/gameQueryStore";
 
 function GenreList() {

@@ -1,10 +1,9 @@
-import { Grid, GridItem, Stack, Show } from "@chakra-ui/react";
-
-import GameGrid from "../../components/GameGrid";
-import GameHeading from "../../components/GameHeading";
+import { Grid, GridItem, Show, Stack } from "@chakra-ui/react";
 import GenreList from "./GenreList";
-import PlatformSelector from "../../components/PlatformSelector";
+import GameHeading from "./Game/GameHeading";
+import PlatformSelector from "./Platform/PlatformSelector";
 import SortSelector from "../../components/SortSelector";
+import GameGrid from "./Game/GameGrid";
 
 function Homepage() {
   return (

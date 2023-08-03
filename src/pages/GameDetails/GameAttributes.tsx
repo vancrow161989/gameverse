@@ -29,7 +29,7 @@ function GameAttributes({ gameDetails }: Props) {
         </DefinitionItem>
       </Box>
 
-      <Box w="48%" marginBottom={10}>
+      <Box w="48%">
         <DefinitionItem term="Genres">
           <List>
             {gameDetails.genres.map((genre) => (
@@ -38,7 +38,7 @@ function GameAttributes({ gameDetails }: Props) {
           </List>
         </DefinitionItem>
       </Box>
-      <Box w="48%" marginBottom={10}>
+      <Box w="48%">
         <DefinitionItem term=" Publishers">
           <List>
             {gameDetails.publishers.map((publisher) => (
