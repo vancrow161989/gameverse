@@ -10,7 +10,11 @@ function NavBar() {
       <HStack>
         <Link to="/">
           <HStack w={["40px", null, "145px"]}>
-            <Image src={logo} boxSize="40px" objectFit="cover"></Image>
+            <Image
+              src={logo}
+              boxSize="40px"
+              width="auto"
+              objectFit="cover"></Image>
             <Show above="md">
               <Text fontWeight="semibold" fontSize="19px">
                 GameVerse

@@ -14,7 +14,9 @@ function GameCard({ game }: { game: Game }) {
         <CardBody>
           <HStack justifyContent="space-between" marginBottom="15px">
             <PlatformIcons
-              platforms={game.parent_platforms.map(({ platform }) => platform)}
+              platforms={game?.parent_platforms?.map(
+                ({ platform }) => platform
+              )}
             />
             <CriticScore score={game.metacritic} />
           </HStack>
