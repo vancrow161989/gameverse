@@ -1,4 +1,4 @@
-import { Grid, GridItem, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ExpandableText from "../../components/ExpandableText";
 import GameAttributes from "./GameAttributes";
@@ -6,7 +6,7 @@ import GameScreenshots from "./GameScreenshots";
 import useGameDetails from "../../hooks/useGameDetails";
 import useGameTrailers from "../../hooks/useGameTrailers";
 import GameTrailer from "./GameTrailer";
-
+import GameDetailsSkeleton from "./GameDetailsSkeleton";
 function GameDetailsPage() {
   const { slug } = useParams();
 
@@ -16,7 +16,7 @@ function GameDetailsPage() {
   console.log("game", gameDetails);
   console.log("trailer", gameTrailer);
 
-  if (isLoading) return <Spinner></Spinner>;
+  if (isLoading) return <GameDetailsSkeleton />;
   if (error || !gameDetails) throw error;
 
   return (

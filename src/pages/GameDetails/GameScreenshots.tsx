@@ -1,5 +1,6 @@
-import { GridItem, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { GridItem, SimpleGrid } from "@chakra-ui/react";
 import useGameScreenshots from "../../hooks/useGameScreenshots";
+import GameScreenshotsSkeleton from "./GameScreenshotsSkeleton";
 
 interface Props {
   gameId: number;
@@ -12,9 +13,7 @@ function GameScreenshots({ gameId }: Props) {
     isLoading
   } = useGameScreenshots(gameId);
 
-  console.log("screemsjpts", gameScreenshots);
-
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <GameScreenshotsSkeleton />;
   if (error || !gameScreenshots) throw error;
   return (
     <SimpleGrid columns={[1, 2]} gap={4} marginY={[6, 45]}>
